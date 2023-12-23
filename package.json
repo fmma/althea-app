@@ -1,0 +1,36 @@
+{
+  "private": true,
+  "name": "althea",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:client-ts": "tsc -p src",
+    "build:client-html": "cpx src/**/*.{html,css,png,js} dist",
+    "build": "npm run build:client-ts && npm run build:client-html",
+    "watch:client-ts": "tsc --watch -p src",
+    "watch:client-html": "cpx --watch src/**/*.{html,css,png,js} dist",
+    "watch": "concurrently -r -k \"npm run watch:client-ts\" \"npm run watch:client-html\"",
+    "start": "http-server -c-1 dist",
+    "go": "concurrently -k -n run,watch -c yellow,green \"npm run start\" \"npm run watch\"",
+    "clean": "rimraf dist node_modules",
+    "rebuild": "npm run clean && npm install && npm run build",
+    "publish": "publish-althea"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "amazon-cognito-identity-js": "^2.0.3",
+    "aws-sdk": "^2.227.1",
+    "d3": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/d3": "^5.0.0",
+    "@types/node": "^9.6.6",
+    "concurrently": "^3.5.1",
+    "cpx": "^1.5.0",
+    "requirejs": "^2.3.5",
+    "rimraf": "^2.6.2"
+  }
+}

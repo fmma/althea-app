@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "module": "amd",
+    "moduleResolution": "node",
+    "target": "es2015",
+    "lib": [
+        "es2016",
+        "dom"
+    ],
+    "strict": true,
+    "sourceMap": false,
+    "baseUrl": ".",
+    "outDir": "../dist/",
+        "paths": {
+            "*": [
+                "../node_modules/*"
+            ]
+        }
+    }
+}
